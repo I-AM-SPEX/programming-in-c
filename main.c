@@ -14,8 +14,7 @@ bool isArmstrongNumber(int number)
         sum = sum + pow(mod, numberOfDigits);
         num /= 10;
     }
-    printf("%d \n",sum);
-    printf("%d \n",number);
+    
     return (number == sum) ? true : false;
 }
 
