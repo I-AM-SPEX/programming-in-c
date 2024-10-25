@@ -47,6 +47,19 @@ int calculateSumOfPrices(int size, int itemPrices[], int itemQuantity[])
     return sum;
 }
 
+int calculateDiscount(int total) {
+    int discount = 0;
+    if (total < 1000) {
+        discount = 5;
+    }else if(total > 1000 && total < 5000) {
+        discount = 10;
+    }else if(total > 5000) {
+        discount = 15;
+    }
+
+    return discount;
+}
+
 int main()
 {
     // 1
