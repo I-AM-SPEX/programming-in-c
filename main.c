@@ -18,42 +18,75 @@ bool isArmstrongNumber(int number)
     return (number == sum) ? true : false; // This line returns true or false based on the condtion
 }
 
-int displayLargerSum(int arr[],int size)
+int displayLargerSum(int arr[], int size)
 {
     int sumOfEvenNumbers = 0;
     int sumOfOddNumbers = 0;
-    for(int i=0;i<size;i++) {
-        if(arr[i] % 2 == 0 ) {
-            sumOfEvenNumbers+=arr[i];
-        }else {
-            sumOfOddNumbers+=arr[i];
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            sumOfEvenNumbers += arr[i];
+        }
+        else
+        {
+            sumOfOddNumbers += arr[i];
         }
     }
-
 
     return (sumOfOddNumbers > sumOfEvenNumbers) ? sumOfOddNumbers : sumOfEvenNumbers;
 }
 
-int main()
+int calculateSumOfPrices(int size, int itemPrices[], int itemQuantity[])
 {
-    // int input;
-    // printf("Check Armstrong Number\n");
-    // printf("Enter Interger: \n");
-    // scanf("%d", &input);
-    // bool result = isArmstrongNumber(input); // isArmstrongNumber function is called on this line.
-    // printf("Armstrong Number: %s \n", result ? "true" : "false");
-    int size;
-    printf("Enter size of array\n");
-    scanf("%d", &size);
-    int numbers[size];
-    for (int i = 0; i < size; i++)
-    {
-        printf("Enter element %d\n", i);
-        scanf("%d", &numbers[i]);
+    int sum = 0;
+    for(int i=0;i<size;i++) {
+        sum+= itemPrices[i] * itemQuantity[i];
     }
 
-    int result = displayLargerSum(numbers,size);
-    printf("Output:   %d\n",result);
-    
+    return sum;
+}
+
+int main()
+{
+    // 1
+    //  int input;
+    //  printf("Check Armstrong Number\n");
+    //  printf("Enter Interger: \n");
+    //  scanf("%d", &input);
+    //  bool result = isArmstrongNumber(input); // isArmstrongNumber function is called on this line.
+    //  printf("Armstrong Number: %s \n", result ? "true" : "false");
+    // 2
+    //  int size;
+    //  printf("Enter size of array\n");
+    //  scanf("%d", &size);
+    //  int numbers[size];
+    //  for (int i = 0; i < size; i++)
+    //  {
+    //      printf("Enter element %d\n", i);
+    //      scanf("%d", &numbers[i]);
+    //  }
+
+    // int result = displayLargerSum(numbers,size);
+    // printf("Larger sum:   %d\n",result);
+
+    // 3
+    int size;
+    int itemQuantity[size];
+    int itemPrices[size];
+
+    printf("Enter Item and Item Price:  ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter Item %s price: ", i + 1);
+        scanf("%d", &itemPrices[i]);
+        for (int j = 0; j < size; j++)
+        {
+            printf("Enter quantity of item %s: ", &itemQuantity);
+        }
+    }
+
+    int total = calculateSumOfPrices(size,itemPrices,itemQuantity);
+
     return 0;
 }
