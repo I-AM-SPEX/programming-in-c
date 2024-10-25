@@ -87,13 +87,34 @@ void displayItemsCalculation(int size, float itemPrices[], int itemQuantity[], d
 }
 
 // Question 5
-void addition(float a, float b) {
-    printf("%f + %f : %f\n",a,b,a+b);
+void addition(float a, float b)
+{
+    printf("%f + %f : %f\n", a, b, a + b);
 }
-void subtraction() {}
-void factorial() {}
-void multiplication() {}
-void division() {}
+void subtraction(float a, float b)
+{
+    printf("%f - %f : %f\n", a, b, a - b);
+}
+int factorial(float a) {
+    if(a == 0 || a == 1) {
+        return 1;
+    }else {
+       return  a * factorial(a - 1);
+    }
+}
+void multiplication(float a, float b)
+{
+    printf("%f * %f : %f\n", a, b, a * b);
+}
+void division(float a,float b)
+{
+    if (b > 0)
+    {
+        printf("%f / %f : %f\n", a, b, a / b);
+    }else {
+        printf("Cant divide by zero");
+    }
+}
 void calculator(char choice)
 {
     switch (choice)
@@ -103,15 +124,34 @@ void calculator(char choice)
         printf("Enter first operand: \n");
         scanf("%f", &a);
         printf("Enter second operand: \n");
-        addition(a,b);
+        scanf("%f", &b);
+        addition(a, b);
         break;
     case '-':
+        float a, b;
+        printf("Enter first operand: \n");
+        scanf("%f", &a);
+        printf("Enter second operand: \n");
+        scanf("%f", &b);
+        subtraction(a, b);
         break;
     case '*':
+        float a, b;
+        printf("Enter first operand: \n");
+        scanf("%f", &a);
+        printf("Enter second operand: \n");
+        scanf("%f", &b);
+        multiplication(a, b);
         break;
     case '!':
         break;
     case '/':
+        float a, b;
+        printf("Enter first operand: \n");
+        scanf("%f", &a);
+        printf("Enter second operand: \n");
+        scanf("%f", &b);
+        division(a, b);
         break;
     case '%':
         break;
