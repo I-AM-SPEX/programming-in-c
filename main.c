@@ -40,26 +40,47 @@ int displayLargerSum(int arr[], int size)
 int calculateSumOfPrices(int size, int itemPrices[], int itemQuantity[])
 {
     int sum = 0;
-    for(int i=0;i<size;i++) {
-        sum+= itemPrices[i] * itemQuantity[i];
+    for (int i = 0; i < size; i++)
+    {
+        sum += itemPrices[i] * itemQuantity[i];
     }
 
     return sum;
 }
 
-int calculateDiscount(int total) {
+int calculateDiscount(int total)
+{
     int discount = 0;
-    if (total < 1000) {
+    if (total < 1000)
+    {
         discount = 5;
-    }else if(total > 1000 && total < 5000) {
+    }
+    else if (total > 1000 && total < 5000)
+    {
         discount = 10;
-    }else if(total > 5000) {
+    }
+    else if (total > 5000)
+    {
         discount = 15;
     }
 
     return discount;
 }
 
+void displayItemsCalculation(int size, int itemPrices[], int itemQuantity[],int total, int discount)
+{
+    int discountAmount = (discount/100) * total;
+    printf("Item    Price   Quanity     Subtotal");
+    for(int i=0;i<size;i++) {
+        printf("Item %s     BWP%s   BWP%s",size+1,itemPrices[i],itemQuantity[i],itemPrices[i] * itemQuantity[i]);
+
+    }
+    printf("*****************************************************************");
+    printf("TOTAL                       BWP%s",total);
+    printf("Discount %s%                BWP-%s",discountAmount);
+    printf("GRAND TOTAL                 BWP%s",total - discountAmount);
+
+}
 int main()
 {
     // 1
@@ -99,7 +120,8 @@ int main()
         }
     }
 
-    int total = calculateSumOfPrices(size,itemPrices,itemQuantity);
+    int total = calculateSumOfPrices(size, itemPrices, itemQuantity);
+    int discount = calculateDiscount(total);
 
     return 0;
 }
