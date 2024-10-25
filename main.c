@@ -37,9 +37,9 @@ int displayLargerSum(int arr[], int size)
     return (sumOfOddNumbers > sumOfEvenNumbers) ? sumOfOddNumbers : sumOfEvenNumbers;
 }
 
-int calculateSumOfPrices(int size, int itemPrices[], int itemQuantity[])
+double calculateSumOfPrices(int size, float itemPrices[], int itemQuantity[])
 {
-    int sum = 0;
+    double sum = 0;
     for (int i = 0; i < size; i++)
     {
         sum += itemPrices[i] * itemQuantity[i];
@@ -48,7 +48,7 @@ int calculateSumOfPrices(int size, int itemPrices[], int itemQuantity[])
     return sum;
 }
 
-int calculateDiscount(int total)
+int calculateDiscount(float total)
 {
     int discount = 0;
     if (total < 1000)
@@ -63,24 +63,28 @@ int calculateDiscount(int total)
     {
         discount = 15;
     }
-
     return discount;
 }
 
-void displayItemsCalculation(int size, int itemPrices[], int itemQuantity[],int total, int discount)
+void displayItemsCalculation(int size, float itemPrices[], int itemQuantity[], double total, int discount)
 {
-    int discountAmount = (discount/100) * total;
-    printf("Item    Price   Quanity     Subtotal");
-    for(int i=0;i<size;i++) {
-        printf("Item %s     BWP%s   BWP%s",size+1,itemPrices[i],itemQuantity[i],itemPrices[i] * itemQuantity[i]);
+    float discountAmount = (discount / 100.00) * total;
 
+    printf("Item        Price         Quantity      Subtotal\n");
+    printf("------------------------------------------------\n");
+
+    for (int i = 0; i < size; i++)
+    {
+        printf("Item %-5d   BWP %-10.2f %-10d BWP %-10.2f\n", i + 1, itemPrices[i], itemQuantity[i], itemPrices[i] * itemQuantity[i]);
     }
-    printf("*****************************************************************");
-    printf("TOTAL                       BWP%s",total);
-    printf("Discount %s%                BWP-%s",discountAmount);
-    printf("GRAND TOTAL                 BWP%s",total - discountAmount);
 
+    printf("------------------------------------------------\n");
+    printf("TOTAL                           BWP %10.2f\n", total);
+    printf("Discount %3d%%                   BWP %10.2f\n", discount, discountAmount);
+    printf("GRAND TOTAL                     BWP %10.2f\n", total - discountAmount);
+    printf("------------------------------------------------\n");
 }
+
 int main()
 {
     // 1
@@ -106,22 +110,26 @@ int main()
 
     // 3
     int size;
-    int itemQuantity[size];
-    int itemPrices[size];
 
-    printf("Enter Item and Item Price:  ");
+    printf("Enter Item and Item Price:  \n");
+    printf("Enter number of items: \n");
+    scanf("%d", &size);
+    int itemQuantity[size];
+    float itemPrices[size];
+
     for (int i = 0; i < size; i++)
     {
-        printf("Enter Item %s price: ", i + 1);
-        scanf("%d", &itemPrices[i]);
-        for (int j = 0; j < size; j++)
-        {
-            printf("Enter quantity of item %s: ", &itemQuantity);
-        }
+        printf("Enter Item %d price: \n", i + 1);
+        scanf("%f", &itemPrices[i]);
+        printf("Enter quantity of item %d: \n", i + 1);
+        scanf("%d", &itemQuantity[i]);
     }
+    printf("\n");
+    printf("*****************************************************************\n");
 
-    int total = calculateSumOfPrices(size, itemPrices, itemQuantity);
+    float total = calculateSumOfPrices(size, itemPrices, itemQuantity);
     int discount = calculateDiscount(total);
+    displayItemsCalculation(size, itemPrices, itemQuantity, total, discount);
 
     return 0;
 }
