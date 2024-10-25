@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 // Function to check if integer is an armstrong number
+// Question 1
 bool isArmstrongNumber(int number)
 {
     int sum = 0;
@@ -17,7 +18,7 @@ bool isArmstrongNumber(int number)
 
     return (number == sum) ? true : false; // This line returns true or false based on the condtion
 }
-
+// Question 2
 int displayLargerSum(int arr[], int size)
 {
     int sumOfEvenNumbers = 0;
@@ -36,7 +37,7 @@ int displayLargerSum(int arr[], int size)
 
     return (sumOfOddNumbers > sumOfEvenNumbers) ? sumOfOddNumbers : sumOfEvenNumbers;
 }
-
+// Question 4
 double calculateSumOfPrices(int size, float itemPrices[], int itemQuantity[])
 {
     double sum = 0;
@@ -85,6 +86,42 @@ void displayItemsCalculation(int size, float itemPrices[], int itemQuantity[], d
     printf("------------------------------------------------\n");
 }
 
+// Question 5
+void addition(float a, float b) {
+    printf("%f + %f : %f\n",a,b,a+b);
+}
+void subtraction() {}
+void factorial() {}
+void multiplication() {}
+void division() {}
+void calculator(char choice)
+{
+    switch (choice)
+    {
+    case '+':
+        float a, b;
+        printf("Enter first operand: \n");
+        scanf("%f", &a);
+        printf("Enter second operand: \n");
+        addition(a,b);
+        break;
+    case '-':
+        break;
+    case '*':
+        break;
+    case '!':
+        break;
+    case '/':
+        break;
+    case '%':
+        break;
+    default:
+        break;
+    }
+}
+void power() {}
+void getOperands() {}
+
 int main()
 {
     // 1
@@ -109,27 +146,35 @@ int main()
     // printf("Larger sum:   %d\n",result);
 
     // 3
-    int size;
+    // int size;
 
-    printf("Enter Item and Item Price:  \n");
-    printf("Enter number of items: \n");
-    scanf("%d", &size);
-    int itemQuantity[size];
-    float itemPrices[size];
+    // printf("Enter Item and Item Price:  \n");
+    // printf("Enter number of items: \n");
+    // scanf("%d", &size);
+    // int itemQuantity[size];
+    // float itemPrices[size];
 
-    for (int i = 0; i < size; i++)
-    {
-        printf("Enter Item %d price: \n", i + 1);
-        scanf("%f", &itemPrices[i]);
-        printf("Enter quantity of item %d: \n", i + 1);
-        scanf("%d", &itemQuantity[i]);
-    }
+    // for (int i = 0; i < size; i++)
+    // {
+    //     printf("Enter Item %d price: \n", i + 1);
+    //     scanf("%f", &itemPrices[i]);
+    //     printf("Enter quantity of item %d: \n", i + 1);
+    //     scanf("%d", &itemQuantity[i]);
+    // }
+    // printf("\n");
+    // printf("*****************************************************************\n");
+
+    // float total = calculateSumOfPrices(size, itemPrices, itemQuantity);
+    // int discount = calculateDiscount(total);
+    // displayItemsCalculation(size, itemPrices, itemQuantity, total, discount);
+
+    // 4
+    char choice;
+    prinf("Simple Scientific Calculator\n");
     printf("\n");
-    printf("*****************************************************************\n");
-
-    float total = calculateSumOfPrices(size, itemPrices, itemQuantity);
-    int discount = calculateDiscount(total);
-    displayItemsCalculation(size, itemPrices, itemQuantity, total, discount);
+    printf("Enter any of the following operators : +,-,*,!,/,%,\n");
+    scanf("%c", &choice);
+    calculator(choice);
 
     return 0;
 }
