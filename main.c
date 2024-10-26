@@ -37,7 +37,7 @@ int displayLargerSum(int arr[], int size)
 
     return (sumOfOddNumbers > sumOfEvenNumbers) ? sumOfOddNumbers : sumOfEvenNumbers;
 }
-// Question 4
+// Question 3
 double calculateSumOfPrices(int size, float itemPrices[], int itemQuantity[])
 {
     double sum = 0;
@@ -86,7 +86,7 @@ void displayItemsCalculation(int size, float itemPrices[], int itemQuantity[], d
     printf("------------------------------------------------\n");
 }
 
-// Question 5
+// Question 4
 void addition(float a, float b)
 {
     printf("%0.2f + %0.2f = %0.2f\n", a, b, a + b);
@@ -182,11 +182,19 @@ void calculator(char choice)
         scanf("%f", &a);
         printf("Enter second operand: \n");
         scanf("%f", &b);
-        power(a,b);
+        power(a, b);
     default:
         break;
     }
 }
+
+// Question 5
+void swapByReference(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+};
 
 int main()
 {
@@ -235,12 +243,28 @@ int main()
     // displayItemsCalculation(size, itemPrices, itemQuantity, total, discount);
 
     // 4
-    char choice;
-    printf("Simple Scientific Calculator\n");
-    printf("\n");
-    printf("Enter any of the following operators : +,-,*,!,/,%,^,\n");
-    scanf("%c", &choice);
-    calculator(choice);
+    // char choice;
+    // printf("Simple Scientific Calculator\n");
+    // printf("\n");
+    // printf("Enter any of the following operators : +,-,*,!,/,%,^,\n");
+    // scanf("%c", &choice);
+    // calculator(choice);
+
+    // 5
+    int a;
+    int b;
+    printf("Program to Swap two integers by reference\n");
+    printf("Enter first number: \n");
+    scanf("%d", &a);
+    printf("Enter second number: \n");
+    scanf("%d", &b);
+    printf("Before Swapping\n");
+    printf("a: %d\n", a);
+    printf("b: %d\n", b);
+    printf("After Swapping\n");
+    swapByReference(&a, &b);
+    printf("a: %d\n", a);
+    printf("b: %d\n", b);
 
     return 0;
 }
