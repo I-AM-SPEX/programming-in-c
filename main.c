@@ -89,38 +89,55 @@ void displayItemsCalculation(int size, float itemPrices[], int itemQuantity[], d
 // Question 5
 void addition(float a, float b)
 {
-    printf("%f + %f : %f\n", a, b, a + b);
+    printf("%0.2f + %0.2f = %0.2f\n", a, b, a + b);
 }
 void subtraction(float a, float b)
 {
-    printf("%f - %f : %f\n", a, b, a - b);
+    printf("%0.2f - %0.2f = %0.2f\n", a, b, a - b);
 }
-int factorial(float a) {
-    if(a == 0 || a == 1) {
+float factorial(float a)
+{
+    if (a == 0 || a == 1)
+    {
         return 1;
-    }else {
-       return  a * factorial(a - 1);
+    }
+    else
+    {
+        return a * factorial(a - 1);
     }
 }
 void multiplication(float a, float b)
 {
-    printf("%f * %f : %f\n", a, b, a * b);
+    printf("%0.2f * %0.2f = %0.2f\n", a, b, a * b);
 }
-void division(float a,float b)
+void division(float a, float b)
 {
     if (b > 0)
     {
-        printf("%f / %f : %f\n", a, b, a / b);
-    }else {
-        printf("Cant divide by zero");
+        printf("%0.2f / %0.2f = %0.2f\n", a, b, a / b);
+    }
+    else
+    {
+        printf("Cant divide by zero\n");
     }
 }
-void calculator(char choice)
+void percentage(float a)
 {
+    printf("Percentage of %0.2f is = %0.2f\n", a, a / 100.00);
+}
+void power(float a, float b)
+{
+    printf("%0.2f ^ %0.2f = %0.2f\n", a, b, pow(a, b));
+}
+
+void calculator(char choice)
+
+{
+    float a, b;
+
     switch (choice)
     {
     case '+':
-        float a, b;
         printf("Enter first operand: \n");
         scanf("%f", &a);
         printf("Enter second operand: \n");
@@ -128,7 +145,6 @@ void calculator(char choice)
         addition(a, b);
         break;
     case '-':
-        float a, b;
         printf("Enter first operand: \n");
         scanf("%f", &a);
         printf("Enter second operand: \n");
@@ -136,7 +152,6 @@ void calculator(char choice)
         subtraction(a, b);
         break;
     case '*':
-        float a, b;
         printf("Enter first operand: \n");
         scanf("%f", &a);
         printf("Enter second operand: \n");
@@ -144,9 +159,12 @@ void calculator(char choice)
         multiplication(a, b);
         break;
     case '!':
+        printf("Enter factorial operand\n");
+        scanf("%f", &a);
+        float result = factorial(a);
+        printf("%0.2f!=%0.2f", a, result);
         break;
     case '/':
-        float a, b;
         printf("Enter first operand: \n");
         scanf("%f", &a);
         printf("Enter second operand: \n");
@@ -154,13 +172,21 @@ void calculator(char choice)
         division(a, b);
         break;
     case '%':
+        printf("Enter operand\n");
+        scanf("%f", &a);
+        percentage(a);
+
         break;
+    case '^':
+        printf("Enter first operand: \n");
+        scanf("%f", &a);
+        printf("Enter second operand: \n");
+        scanf("%f", &b);
+        power(a,b);
     default:
         break;
     }
 }
-void power() {}
-void getOperands() {}
 
 int main()
 {
@@ -210,9 +236,9 @@ int main()
 
     // 4
     char choice;
-    prinf("Simple Scientific Calculator\n");
+    printf("Simple Scientific Calculator\n");
     printf("\n");
-    printf("Enter any of the following operators : +,-,*,!,/,%,\n");
+    printf("Enter any of the following operators : +,-,*,!,/,%,^,\n");
     scanf("%c", &choice);
     calculator(choice);
 
