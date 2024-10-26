@@ -254,50 +254,93 @@ int main()
     // printf("y: %d\n", y);
 
     // Q6
-    printf("Create a Struct:\n");
-    struct person person1;
-    struct person person2;
+    // printf("Create a Struct:\n");
+    // struct person person1;
+    // struct person person2;
 
-    printf("Enter person1 first name: \n");
-    scanf("%s", &person1.firstName);
-    printf("Enter person1 last name: \n");
-    scanf("%s", &person2.lastName);
+    // printf("Enter person1 first name: \n");
+    // scanf("%s", &person1.firstName);
+    // printf("Enter person1 last name: \n");
+    // scanf("%s", &person2.lastName);
 
-    printf("Enter person2 first name: \n");
-    scanf("%s", &person2.firstName);
-    printf("Enter person2 last name: \n");
-    scanf("%s", &person2.lastName);
+    // printf("Enter person2 first name: \n");
+    // scanf("%s", &person2.firstName);
+    // printf("Enter person2 last name: \n");
+    // scanf("%s", &person2.lastName);
 
-    printf("Enter person1 age: \n");
-    scanf("%d", &person1.age);
+    // printf("Enter person1 age: \n");
+    // scanf("%d", &person1.age);
 
-    printf("Enter person2 age: \n");
-    scanf("%d", &person2.age);
+    // printf("Enter person2 age: \n");
+    // scanf("%d", &person2.age);
 
-    printf("Enter person1 gender: \n");
-    scanf(" %c", &person1.gender);
+    // printf("Enter person1 gender: \n");
+    // scanf(" %c", &person1.gender);
 
-    printf("Enter person2 gender: \n");
-    scanf(" %c", &person2.gender);
+    // printf("Enter person2 gender: \n");
+    // scanf(" %c", &person2.gender);
 
-    printf("Enter person1 occupation:  \n");
-    scanf("%s", &person1.occupation);
+    // printf("Enter person1 occupation:  \n");
+    // scanf("%s", &person1.occupation);
 
-    printf("Enter person2 occupation:  \n");
-    scanf("%s", &person2.occupation);
+    // printf("Enter person2 occupation:  \n");
+    // scanf("%s", &person2.occupation);
 
-    printf("Person1 Information\n");
-    printf("\n");
-    printf("Name: %s %s\n", person1.firstName, person1.lastName);
-    printf("Age: %d\n", person1.age);
-    printf("Gender: %c\n", person1.gender);
-    printf("Occuaption: %s\n", person1.occupation);
+    // printf("Person1 Information\n");
+    // printf("\n");
+    // printf("Name: %s %s\n", person1.firstName, person1.lastName);
+    // printf("Age: %d\n", person1.age);
+    // printf("Gender: %c\n", person1.gender);
+    // printf("Occuaption: %s\n", person1.occupation);
 
-    printf("Person2 Information\n");
-    printf("\n");
-    printf("Name: %s %s\n", person2.firstName, person2.lastName);
-    printf("Age: %d\n", person2.age);
-    printf("Gender: %c\n", person2.gender);
-    printf("Occuaption: %s\n", person2.occupation);
+    // printf("Person2 Information\n");
+    // printf("\n");
+    // printf("Name: %s %s\n", person2.firstName, person2.lastName);
+    // printf("Age: %d\n", person2.age);
+    // printf("Gender: %c\n", person2.gender);
+    // printf("Occuaption: %s\n", person2.occupation);
 
+    // Q7
+    FILE *f;
+    char nameOfFile[] = "student-marks.txt";
+    int arrLength;
+    printf("File Handling Problem: \n");
+    printf("Enter number the number of students: \n");
+    scanf("%d", &arrLength);
+    char students[arrLength][50];
+    int marks[arrLength];
+    for (int i = 0; i < arrLength; i++)
+    {
+        printf("Enter student name at index %d: \n", i);
+        scanf("%s", &students[i]);
+        printf("Enter student mark at index %d: \n", i + 1);
+        scanf("%d", &marks[i]);
+    }
+    f = fopen(nameOfFile, "r");
+    if (f == NULL)
+    {
+        f = fopen(nameOfFile, "w");
+        printf("Created new file\n");
+        fprintf(f, "Student     Mark\n");
+        for (int i = 0; i < arrLength; i++)
+        {
+
+            fprintf(f, "%-10s %d\n", students[i], marks[i]);
+        }
+
+        fclose(f);
+    }
+    else
+    {
+        fclose(f);
+        f = fopen(nameOfFile, "a");
+
+        for (int i = 0; i < arrLength; i++)
+        {
+            fprintf(f, "%-12s %d\n", students[i], marks[i]);
+        }
+
+        printf("Added student marks.\n");
+        fclose(f);
+    }
 }
