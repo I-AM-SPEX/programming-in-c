@@ -196,6 +196,16 @@ void swapByReference(int *a, int *b)
     *b = temp;
 };
 
+// Question 6
+struct Student
+{
+    char firstName[30];
+    char lastName[30];
+    int age;
+    int level;
+    char gender;
+};
+
 int main()
 {
     // 1
@@ -251,20 +261,44 @@ int main()
     // calculator(choice);
 
     // 5
-    int a;
-    int b;
-    printf("Program to Swap two integers by reference\n");
-    printf("Enter first number: \n");
-    scanf("%d", &a);
-    printf("Enter second number: \n");
-    scanf("%d", &b);
-    printf("Before Swapping\n");
-    printf("a: %d\n", a);
-    printf("b: %d\n", b);
-    printf("After Swapping\n");
-    swapByReference(&a, &b);
-    printf("a: %d\n", a);
-    printf("b: %d\n", b);
+    // int a;
+    // int b;
+    // printf("Program to Swap two integers by reference\n");
+    // printf("Enter first number: \n");
+    // scanf("%d", &a);
+    // printf("Enter second number: \n");
+    // scanf("%d", &b);
+    // printf("Before Swapping\n");
+    // printf("a: %d\n", a);
+    // printf("b: %d\n", b);
+    // printf("After Swapping\n");
+    // swapByReference(&a, &b);
+    // printf("a: %d\n", a);
+    // printf("b: %d\n", b);
+
+    // 6
+    printf("Struct Program\n");
+    struct Student student;
+    printf("Enter student first name: \n");
+    scanf("%s", &student.firstName);
+    printf("Enter student last name: \n");
+    scanf("%s", &student.lastName);
+
+    printf("Enter student age: \n");
+    scanf("%d", &student.age);
+
+    printf("Enter student level:  \n");
+    scanf("%d", &student.level);
+
+    printf("Enter student gender: \n");
+    scanf(" %c", &student.gender);
+
+    printf("Student Details\n");
+    printf("\n");
+    printf("Name: %s %s\n",student.firstName, student.lastName);
+    printf("Age: %d\n",student.age);
+    printf("Level: %d\n",student.level);
+    printf("Gender: %c\n",student.gender);
 
     return 0;
 }
