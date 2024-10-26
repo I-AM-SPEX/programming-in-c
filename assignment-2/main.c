@@ -13,9 +13,9 @@ int calculateTotalPrice(int prices[], int quantity[], int arrLength)
     return total;
 }
 
-
-int getDiscount(int amount) {
-     int discount = 0;
+int getDiscount(int amount)
+{
+    int discount = 0;
     if (amount < 1000)
     {
         discount = 5;
@@ -31,8 +31,7 @@ int getDiscount(int amount) {
     return discount;
 }
 
-
-void outputItemPrices(int discount,int total,int prices[],int quantity[],int arrLength)
+void outputItemPrices(int discount, int total, int prices[], int quantity[], int arrLength)
 {
     int discounted = (discount / 100.00) * total;
 
@@ -48,6 +47,43 @@ void outputItemPrices(int discount,int total,int prices[],int quantity[],int arr
     printf("GRAND TOTAL                     BWP%5.2d\n", total - discounted);
 }
 
+float add(float x, float y)
+{
+    return x + y;
+}
+
+float substract(float x, float y)
+{
+    return x - y;
+}
+
+float multiply(float x, float y)
+{
+    return x * y;
+}
+void divide(float x, float y)
+{
+    if (y == 0)
+    {
+        printf("Undefined, cannot divide by zero\n");
+    }
+    else
+    {
+        int asnwer = x / y;
+        printf("%0.2f / %0.2f = %0.2f\n", x, y, asnwer);
+    }
+}
+
+float power(float x, float y)
+{
+    float result = x;
+    for (int i = 1; i < y; i++)
+    {
+        result *= x;
+    }
+
+    return result;
+}
 int main()
 {
     // Q1LauNDARRY
@@ -106,22 +142,80 @@ int main()
     // (evenSum > oddSum)? printf("Larger sum is %d\n",evenSum) : printf("Larger sum is %d\n",oddSum);
 
     // Q3
-    int arrLength;
-    printf("Item Prices Calculator: \n");
-    printf("Enter number of items: \n");
-    scanf("%d", &arrLength);
-    int prices[arrLength];
-    int quantity[arrLength];
+    // int arrLength;
+    // printf("Item Prices Calculator: \n");
+    // printf("Enter number of items: \n");
+    // scanf("%d", &arrLength);
+    // int prices[arrLength];
+    // int quantity[arrLength];
 
-    for (int i = 0; i < arrLength; i++)
+    // for (int i = 0; i < arrLength; i++)
+    // {
+    //     printf("Enter price of item at index %d\n", i);
+    //     scanf("%d", &prices[i]);
+    //     printf("Enter item quantity at index %d\n", i);
+    //     scanf("%d", &quantity[i]);
+    // }
+
+    // int totalSum = calculateTotalPrice(prices,quantity,arrLength);
+    // int discount  = getDiscount(totalSum);
+    // outputItemPrices(discount,totalSum,prices,quantity,arrLength);
+
+    // Q4
+    char chosenOperator;
+    float x, y;
+    float result;
+    printf("Calculator Program\n");
+    printf("Input any of the stated operator: +,-,/,*,^\n");
+    scanf("%c", &chosenOperator);
+
+    switch (chosenOperator)
     {
-        printf("Enter price of item at index %d\n", i);
-        scanf("%d", &prices[i]);
-        printf("Enter item quantity at index %d\n", i);
-        scanf("%d", &quantity[i]);
-    }
+    case '+':
+        printf("Enter first number: \n");
+        scanf("%f", &x);
+        printf("Enter second number: \n");
+        scanf("%f", &y);
+        result = add(x, y);
+        printf("Answer: %0.2f\n", result);
+        break;
+    case '-':
+        printf("Enter first number: \n");
+        scanf("%f", &x);
+        printf("Enter second number: \n");
+        scanf("%f", &y);
+        result = substract(x, y);
+        printf("Answer: %0.2f\n", result);
 
-    int totalSum = calculateTotalPrice(prices,quantity,arrLength);
-    int discount  = getDiscount(totalSum);
-    outputItemPrices(discount,totalSum,prices,quantity,arrLength);
+        break;
+    case '/':
+        printf("Enter first number \n");
+        scanf("%f", &x);
+        printf("Enter second number: \n");
+        scanf("%f", &y);
+        divide(x, y);
+        break;
+    case '*':
+        printf("Enter first number: \n");
+        scanf("%f", &x);
+        printf("Enter second number: \n");
+        scanf("%f", &y);
+        result = multiply(x, y);
+        printf("Answer: %0.2f\n", result);
+
+        break;
+    case '^':
+        printf("Enter first number: \n");
+        scanf("%f", &x);
+        printf("Enter second number: \n");
+        scanf("%f", &y);
+        result = power(x, y);
+        printf("Answer: %0.2f\n", result);
+
+        break;
+
+    default:
+        printf("Undefine operator\n");
+        break;
+    }
 }
