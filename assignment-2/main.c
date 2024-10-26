@@ -84,6 +84,13 @@ float power(float x, float y)
 
     return result;
 }
+
+void swapNumbers(int *x, int *y)
+{
+    int z = *x;
+    *x = *y;
+    *y = z;
+};
 int main()
 {
     // Q1LauNDARRY
@@ -162,60 +169,77 @@ int main()
     // outputItemPrices(discount,totalSum,prices,quantity,arrLength);
 
     // Q4
-    char chosenOperator;
-    float x, y;
-    float result;
-    printf("Calculator Program\n");
-    printf("Input any of the stated operator: +,-,/,*,^\n");
-    scanf("%c", &chosenOperator);
+    // char chosenOperator;
+    // float x, y;
+    // float result;
+    // printf("Calculator Program\n");
+    // printf("Input any of the stated operator: +,-,/,*,^\n");
+    // scanf("%c", &chosenOperator);
 
-    switch (chosenOperator)
-    {
-    case '+':
-        printf("Enter first number: \n");
-        scanf("%f", &x);
-        printf("Enter second number: \n");
-        scanf("%f", &y);
-        result = add(x, y);
-        printf("Answer: %0.2f\n", result);
-        break;
-    case '-':
-        printf("Enter first number: \n");
-        scanf("%f", &x);
-        printf("Enter second number: \n");
-        scanf("%f", &y);
-        result = substract(x, y);
-        printf("Answer: %0.2f\n", result);
+    // switch (chosenOperator)
+    // {
+    // case '+':
+    //     printf("Enter first number: \n");
+    //     scanf("%f", &x);
+    //     printf("Enter second number: \n");
+    //     scanf("%f", &y);
+    //     result = add(x, y);
+    //     printf("Answer: %0.2f\n", result);
+    //     break;
+    // case '-':
+    //     printf("Enter first number: \n");
+    //     scanf("%f", &x);
+    //     printf("Enter second number: \n");
+    //     scanf("%f", &y);
+    //     result = substract(x, y);
+    //     printf("Answer: %0.2f\n", result);
 
-        break;
-    case '/':
-        printf("Enter first number \n");
-        scanf("%f", &x);
-        printf("Enter second number: \n");
-        scanf("%f", &y);
-        divide(x, y);
-        break;
-    case '*':
-        printf("Enter first number: \n");
-        scanf("%f", &x);
-        printf("Enter second number: \n");
-        scanf("%f", &y);
-        result = multiply(x, y);
-        printf("Answer: %0.2f\n", result);
+    //     break;
+    // case '/':
+    //     printf("Enter first number \n");
+    //     scanf("%f", &x);
+    //     printf("Enter second number: \n");
+    //     scanf("%f", &y);
+    //     divide(x, y);
+    //     break;
+    // case '*':
+    //     printf("Enter first number: \n");
+    //     scanf("%f", &x);
+    //     printf("Enter second number: \n");
+    //     scanf("%f", &y);
+    //     result = multiply(x, y);
+    //     printf("Answer: %0.2f\n", result);
 
-        break;
-    case '^':
-        printf("Enter first number: \n");
-        scanf("%f", &x);
-        printf("Enter second number: \n");
-        scanf("%f", &y);
-        result = power(x, y);
-        printf("Answer: %0.2f\n", result);
+    //     break;
+    // case '^':
+    //     printf("Enter first number: \n");
+    //     scanf("%f", &x);
+    //     printf("Enter second number: \n");
+    //     scanf("%f", &y);
+    //     result = power(x, y);
+    //     printf("Answer: %0.2f\n", result);
 
-        break;
+    //     break;
 
-    default:
-        printf("Undefine operator\n");
-        break;
-    }
+    // default:
+    //     printf("Undefine operator\n");
+    //     break;
+    // }
+
+    // Q5
+    int x;
+    int y;
+
+    printf("Swap by referecne program\n");
+    printf("Enter number 1: \n");
+    scanf("%d", &x);
+    printf("Enter number 2: \n");
+    scanf("%d", &y);
+    printf("Before \n");
+    printf("x: %d\n", x);
+    printf("y: %d\n", y);
+    printf("After \n");
+    swapNumbers(&x, &y);
+    printf("x: %d\n", x);
+    printf("y: %d\n", y);
 }
