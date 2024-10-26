@@ -91,6 +91,16 @@ void swapNumbers(int *x, int *y)
     *x = *y;
     *y = z;
 };
+
+struct person
+{
+    char firstName[50];
+    char lastName[50];
+    int age;
+    char gender;
+    char occupation[50];
+};
+
 int main()
 {
     // Q1LauNDARRY
@@ -227,19 +237,67 @@ int main()
     // }
 
     // Q5
-    int x;
-    int y;
+    // int x;
+    // int y;
 
-    printf("Swap by referecne program\n");
-    printf("Enter number 1: \n");
-    scanf("%d", &x);
-    printf("Enter number 2: \n");
-    scanf("%d", &y);
-    printf("Before \n");
-    printf("x: %d\n", x);
-    printf("y: %d\n", y);
-    printf("After \n");
-    swapNumbers(&x, &y);
-    printf("x: %d\n", x);
-    printf("y: %d\n", y);
+    // printf("Swap by referecne program\n");
+    // printf("Enter number 1: \n");
+    // scanf("%d", &x);
+    // printf("Enter number 2: \n");
+    // scanf("%d", &y);
+    // printf("Before \n");
+    // printf("x: %d\n", x);
+    // printf("y: %d\n", y);
+    // printf("After \n");
+    // swapNumbers(&x, &y);
+    // printf("x: %d\n", x);
+    // printf("y: %d\n", y);
+
+    // Q6
+    printf("Create a Struct:\n");
+    struct person person1;
+    struct person person2;
+
+    printf("Enter person1 first name: \n");
+    scanf("%s", &person1.firstName);
+    printf("Enter person1 last name: \n");
+    scanf("%s", &person2.lastName);
+
+    printf("Enter person2 first name: \n");
+    scanf("%s", &person2.firstName);
+    printf("Enter person2 last name: \n");
+    scanf("%s", &person2.lastName);
+
+    printf("Enter person1 age: \n");
+    scanf("%d", &person1.age);
+
+    printf("Enter person2 age: \n");
+    scanf("%d", &person2.age);
+
+    printf("Enter person1 gender: \n");
+    scanf(" %c", &person1.gender);
+
+    printf("Enter person2 gender: \n");
+    scanf(" %c", &person2.gender);
+
+    printf("Enter person1 occupation:  \n");
+    scanf("%s", &person1.occupation);
+
+    printf("Enter person2 occupation:  \n");
+    scanf("%s", &person2.occupation);
+
+    printf("Person1 Information\n");
+    printf("\n");
+    printf("Name: %s %s\n", person1.firstName, person1.lastName);
+    printf("Age: %d\n", person1.age);
+    printf("Gender: %c\n", person1.gender);
+    printf("Occuaption: %s\n", person1.occupation);
+
+    printf("Person2 Information\n");
+    printf("\n");
+    printf("Name: %s %s\n", person2.firstName, person2.lastName);
+    printf("Age: %d\n", person2.age);
+    printf("Gender: %c\n", person2.gender);
+    printf("Occuaption: %s\n", person2.occupation);
+
 }
