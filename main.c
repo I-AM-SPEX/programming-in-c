@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
 // Function to check if integer is an armstrong number
 // Question 1
 bool isArmstrongNumber(int number)
@@ -277,28 +278,62 @@ int main()
     // printf("b: %d\n", b);
 
     // 6
-    printf("Struct Program\n");
-    struct Student student;
-    printf("Enter student first name: \n");
-    scanf("%s", &student.firstName);
-    printf("Enter student last name: \n");
-    scanf("%s", &student.lastName);
+    // printf("Struct Program\n");
+    // struct Student student;
+    // printf("Enter student first name: \n");
+    // scanf("%s", &student.firstName);
+    // printf("Enter student last name: \n");
+    // scanf("%s", &student.lastName);
 
-    printf("Enter student age: \n");
-    scanf("%d", &student.age);
+    // printf("Enter student age: \n");
+    // scanf("%d", &student.age);
 
-    printf("Enter student level:  \n");
-    scanf("%d", &student.level);
+    // printf("Enter student level:  \n");
+    // scanf("%d", &student.level);
 
-    printf("Enter student gender: \n");
-    scanf(" %c", &student.gender);
+    // printf("Enter student gender: \n");
+    // scanf(" %c", &student.gender);
 
-    printf("Student Details\n");
-    printf("\n");
-    printf("Name: %s %s\n",student.firstName, student.lastName);
-    printf("Age: %d\n",student.age);
-    printf("Level: %d\n",student.level);
-    printf("Gender: %c\n",student.gender);
+    // printf("Student Details\n");
+    // printf("\n");
+    // printf("Name: %s %s\n",student.firstName, student.lastName);
+    // printf("Age: %d\n",student.age);
+    // printf("Level: %d\n",student.level);
+    // printf("Gender: %c\n",student.gender);
+
+    // 7
+    int size;
+    // char fileName[] ="studentList.txt";
+     char fileName[] ="file.txt";
+    FILE *file;
+    printf("Program 7\n");
+    printf("Enter number of students: \n");
+    scanf("%d", &size);
+    int studentList[size][30];
+    int markList[size];
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter student %d name: \n", i + 1);
+        scanf("%s", &studentList[i]);
+        printf("Enter student %d mark: \n", i + 1);
+        scanf("%d", &markList[i]);
+    }
+    file = fopen(fileName,"r");
+    if(file == NULL) {
+         printf("It does not exist\n");
+    }else {
+         printf("It exist\n");
+          fclose(file);
+    }
+   
+    // if (access("file.txt", F_OK) == 0)
+    // {
+    //     printf("It exist\n");
+    // }
+    // else
+    // {
+    //     printf("It does not exist\n");
+    // }
 
     return 0;
 }
