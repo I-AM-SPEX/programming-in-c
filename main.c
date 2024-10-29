@@ -113,7 +113,7 @@ void multiplication(float a, float b)
 }
 void division(float a, float b)
 {
-    if (b > 0)
+    if (b != 0)
     {
         printf("%0.2f / %0.2f = %0.2f\n", a, b, a / b);
     }
@@ -185,6 +185,7 @@ void calculator(char choice)
         scanf("%f", &b);
         power(a, b);
     default:
+        printf("Invalid Operator\n");
         break;
     }
 }
@@ -301,10 +302,31 @@ int main()
     // printf("Level: %d\n",student.level);
     // printf("Gender: %c\n",student.gender);
 
+    // struct Student student1;
+    // printf("Enter student first name: \n");
+    // scanf("%s", &student1.firstName);
+    // printf("Enter student last name: \n");
+    // scanf("%s", &student1.lastName);
+
+    // printf("Enter student1 age: \n");
+    // scanf("%d", &student1.age);
+
+    // printf("Enter student1 level:  \n");
+    // scanf("%d", &student1.level);
+
+    // printf("Enter student1 gender: \n");
+    // scanf(" %c", &student1.gender);
+
+    // printf("Student1 Details\n");
+    // printf("\n");
+    // printf("Name: %s %s\n",student1.firstName, student1.lastName);
+    // printf("Age: %d\n",student1.age);
+    // printf("Level: %d\n",student1.level);
+    // printf("Gender: %c\n",student1.gender);
+
     // 7
     int size;
-    // char fileName[] ="studentList.txt";
-     char fileName[] ="file.txt";
+    char fileName[] = "studentList.txt";
     FILE *file;
     printf("Program 7\n");
     printf("Enter number of students: \n");
@@ -318,22 +340,32 @@ int main()
         printf("Enter student %d mark: \n", i + 1);
         scanf("%d", &markList[i]);
     }
-    file = fopen(fileName,"r");
-    if(file == NULL) {
-         printf("It does not exist\n");
-    }else {
-         printf("It exist\n");
-          fclose(file);
+    file = fopen(fileName, "r");
+    if (file == NULL)
+    {
+
+        file = fopen(fileName, "w");
+        fprintf(file, "Names       Marks\n");
+        for (int i = 0; i < size; i++)
+        {
+
+            fprintf(file, "%-12s %d\n", studentList[i], markList[i]);
+        }
+        printf("File created");
+        fclose(file);
     }
-   
-    // if (access("file.txt", F_OK) == 0)
-    // {
-    //     printf("It exist\n");
-    // }
-    // else
-    // {
-    //     printf("It does not exist\n");
-    // }
+    else
+    {
+        fclose(file);
+        file = fopen(fileName, "a");
+
+        for (int i = 0; i < size; i++)
+        {
+            fprintf(file, "%-12s %d\n", studentList[i], markList[i]);
+        }
+        printf("Append new student marks.\n");
+        fclose(file);
+    }
 
     return 0;
 }
